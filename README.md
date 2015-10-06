@@ -1,7 +1,7 @@
 Excountries
 ===========
 
-![](https://img.shields.io/hexpm/dt/excountries.svg?style=flat-square) ![](https://img.shields.io/hexpm/v/excountries.svg?style=flat-square) ![](https://img.shields.io/crates/l/excountries.svg?style=flat-square)
+![](https://img.shields.io/hexpm/dt/excountries.svg?style=flat-square) ![](https://img.shields.io/hexpm/v/excountries.svg?style=flat-square)
 
 This is a tiny [Elixir](http://elixir-lang.org) wrapper for the [REST Countries API](http://restcountries.eu/).
 
