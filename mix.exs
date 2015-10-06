@@ -46,7 +46,7 @@ defmodule Excountries.Mixfile do
      files: ["lib", "config", "mix.exs", "README*", "LICENSE*"],
      maintainers: ["Ilija Eftimov"],
      licenses: ["MIT"],
-     links: %{"GitHub" => "https://github.com/fteem/excuntries"}
+     links: %{"GitHub" => "https://github.com/fteem/excountries"}
     ]
   end
 end
