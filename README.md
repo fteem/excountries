@@ -2,6 +2,7 @@ Excountries
 ===========
 
 ![](https://img.shields.io/hexpm/dt/excountries.svg) ![](https://img.shields.io/hexpm/v/excountries.svg)
+
 This is a tiny [Elixir](http://elixir-lang.org) wrapper for the [REST Countries API](http://restcountries.eu/).
 
 ## Installation
