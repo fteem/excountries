@@ -3,6 +3,25 @@ Excountries
 
 This is a tiny [Elixir](http://elixir-lang.org) wrapper for the [REST Countries API](http://restcountries.eu/).
 
+## Installation
+
+First, add Excountries to your `mix.exs` dependencies:
+
+```elixir
+def deps do
+  [{:excountries, "~> 0.0.1"}]
+end
+```
+
+and run `$ mix deps.get`. Now, list the `:excountries` application as your
+application dependency:
+
+```elixir
+def application do
+  [applications: [:excountries]]
+end
+```
+
 ## Usage
 
 There are multiple functions via which one can search for countries in the API.
@@ -101,5 +120,5 @@ Searches for the country by it's country code:
   - timezones
   - nativeName
   - topLevelDomain
-
-    currencies, languages]
+  - currencies
+  - languages
