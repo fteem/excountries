@@ -46,7 +46,7 @@ Searches for a country by a language code:
 ```elixir
  Excountries.Radar.by_language("en")
 ```
-Language codes must be ISO 639-1 compliant.
+Language codes must be ISO 639-1 compliant. If not, throws error.
 
 ### Currency
 
