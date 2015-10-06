@@ -122,3 +122,10 @@ Searches for the country by it's country code:
   - topLevelDomain
   - currencies
   - languages
+
+## License
+
+  Copyright © 2015 Ilija Eftimov <ileeftimov@gmail.com>
+
+  This work is free. You can redistribute it and/or modify it under the
+  terms of the MIT License. See the LICENSE file for more details.
