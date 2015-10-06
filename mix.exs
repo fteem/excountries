@@ -43,7 +43,7 @@ defmodule Excountries.Mixfile do
 
   defp package do
     [
-     files: ["lib", "config", "mix.exs", "README*", "LICENSE*", "license*"],
+     files: ["lib", "config", "mix.exs", "README*", "LICENSE*"],
      maintainers: ["Ilija Eftimov"],
      licenses: ["MIT"],
      links: %{"GitHub" => "https://github.com/fteem/excuntries"}
