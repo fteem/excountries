@@ -32,4 +32,19 @@ defmodule Excountries.Mixfile do
       {:poison, "~> 1.5"}
     ]
   end
+
+  defp description do
+    """
+    Elixir wrapper for REST Countries API (http://restcountries.eu/)
+    """
+  end
+
+  defp package do
+    [
+     files: ["lib", "config", "mix.exs", "README*", "LICENSE*", "license*"],
+     maintainers: ["Ilija Eftimov"],
+     licenses: ["MIT"],
+     links: %{"GitHub" => "https://github.com/fteem/excuntries"}
+    ]
+  end
 end

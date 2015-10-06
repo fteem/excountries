@@ -13,14 +13,7 @@ def deps do
 end
 ```
 
-and run `$ mix deps.get`. Now, list the `:excountries` application as your
-application dependency:
-
-```elixir
-def application do
-  [applications: [:excountries]]
-end
-```
+and run `$ mix deps.get`. 
 
 ## Usage
 
