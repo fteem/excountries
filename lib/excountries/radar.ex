@@ -14,7 +14,10 @@ defmodule Excountries.Radar do
   * by_country_code
   * by_region
   * by_subregion
+  * by_regional_bloc
   """
+
+  alias Excountries.API
 
   @doc """
   Returns all of the countries in a list.
@@ -23,8 +26,8 @@ defmodule Excountries.Radar do
    Excountries.Radar.all()
   ```
   """
-  def all(client \\ Excountries.API) do
-    client.call("/all") |> Poison.decode!(as: [Excountries.Country])
+  def all(fields \\ nil) do
+    API.call("/all", fields) |> Poison.decode!(as: [Excountries.Country])
   end
 
   @doc """
@@ -34,11 +37,11 @@ defmodule Excountries.Radar do
    Excountries.Radar.by_full_name("United States Of America")
   ```
   """
-  def by_full_name(name, client \\ Excountries.API) do
+  def by_full_name(name, fields \\ nil) do
     name = String.downcase name
-    client.call("/name/#{name}?fullText=true") |> Poison.decode!(as: [Excountries.Country]) |> List.first
+    API.call_fulltext("/name/#{name}", fields) |> Poison.decode!(as: [Excountries.Country]) |> List.first
   end
-  
+
   @doc """
   Searches for a country by a substring of it's name or abbreviation:
 
@@ -46,9 +49,9 @@ defmodule Excountries.Radar do
    Excountries.Radar.by_name("USA")
   ```
   """
-  def by_name(name, client \\ Excountries.API) do
+  def by_name(name, fields \\ nil) do
     name = String.downcase name
-    client.call("/name/#{name}") |> Poison.decode!(as: [Excountries.Country])
+    API.call("/name/#{name}", fields) |> Poison.decode!(as: [Excountries.Country])
   end
 
   @doc """
@@ -58,9 +61,9 @@ defmodule Excountries.Radar do
    Excountries.Radar.by_language("en")
   ```
   """
-  def by_language(lang, client \\ Excountries.API) do
-    Excountries.LanguageValidator.validate!(lang) 
-    client.call("/lang/#{lang}") |> Poison.decode!(as: [Excountries.Country])
+  def by_language(lang, fields \\ nil) do
+    Excountries.LanguageValidator.validate!(lang)
+    API.call("/lang/#{lang}", fields) |> Poison.decode!(as: [Excountries.Country])
   end
 
   @doc """
@@ -70,8 +73,8 @@ defmodule Excountries.Radar do
    Excountries.Radar.by_currency("USD")
   ```
   """
-  def by_currency(currency, client \\ Excountries.API) do
-    client.call("/currency/#{currency}") |> Poison.decode!(as: [Excountries.Country])
+  def by_currency(currency, fields \\ nil) do
+    API.call("/currency/#{currency}", fields) |> Poison.decode!(as: [Excountries.Country])
   end
 
   @doc """
@@ -81,8 +84,8 @@ defmodule Excountries.Radar do
    Excountries.Radar.by_capital("USD")
   ```
   """
-  def by_capital(capital, client \\ Excountries.API) do
-    client.call("/capital/#{capital}") |> Poison.decode!(as: [Excountries.Country]) |> List.first
+  def by_capital(capital, fields \\ nil) do
+    API.call("/capital/#{capital}", fields) |> Poison.decode!(as: [Excountries.Country]) |> List.first
   end
 
   @doc """
@@ -92,8 +95,8 @@ defmodule Excountries.Radar do
    Excountries.Radar.by_calling_code("01")
   ```
   """
-  def by_calling_code(code, client \\ Excountries.API) do
-    client.call("/calling_code/#{code}") |> Poison.decode!(as: [Excountries.Country])
+  def by_calling_code(code, fields \\ nil) do
+    API.call("/calling_code/#{code}", fields) |> Poison.decode!(as: [Excountries.Country])
   end
 
   @doc """
@@ -103,8 +106,8 @@ defmodule Excountries.Radar do
    Excountries.Radar.by_region("Oceania")
   ```
   """
-  def by_region(region, client \\ Excountries.API) do
-    client.call("/region/#{region}") |> Poison.decode!(as: [Excountries.Country])
+  def by_region(region, fields \\ nil) do
+    API.call("/region/#{region}", fields) |> Poison.decode!(as: [Excountries.Country])
   end
 
   @doc """
@@ -114,8 +117,8 @@ defmodule Excountries.Radar do
    Excountries.Radar.by_subregion("Polynesia")
   ```
   """
-  def by_subregion(subregion, client \\ Excountries.API) do
-    client.call("/subregion/#{subregion}") |> Poison.decode!(as: [Excountries.Country])
+  def by_subregion(subregion, fields \\ nil) do
+    API.call("/subregion/#{subregion}", fields) |> Poison.decode!(as: [Excountries.Country])
   end
 
   @doc """
@@ -125,7 +128,18 @@ defmodule Excountries.Radar do
    Excountries.Radar.by_country_code("MKD")
   ```
   """
-  def by_country_code(code, client \\ Excountries.API) do
-    client.call("/alpha/#{code}") |> Poison.decode!(as: [Excountries.Country])
+  def by_country_code(code, fields \\ nil) do
+    API.call("/alpha/#{code}", fields) |> Poison.decode!(as: [Excountries.Country])
+  end
+
+  @doc """
+  Searches for the country by it's regional bloc:
+
+  ```
+   Excountries.Radar.by_regional_bloc("eu")
+  ```
+  """
+  def by_regional_bloc(regionalbloc, fields \\ nil) do
+    API.call("/regionalbloc/#{regionalbloc}", fields) |> Poison.decode!(as: [Excountries.Country])
   end
 end

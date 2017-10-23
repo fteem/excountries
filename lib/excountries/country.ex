@@ -1,7 +1,30 @@
 defmodule Excountries.Country do
   @derive [Poison.Encoder]
-  defstruct [:name, :capital, :relevance, :region, :subregion, :population,
-    :latitude, :longitude, :demonym, :area, :timezones, :nativeName, :topLevelDomain, 
-    :currencies, :languages]
+  defstruct [
+    :name,
+    :topLevelDomain,
+    :alpha2Code,
+    :alpha3Code,
+    :callingCodes,
+    :capital,
+    :altSpellings,
+    :region,
+    :subregion,
+    :population,
+    :latlng,
+    :demonym,
+    :area,
+    :gini,
+    :timezones,
+    :borders,
+    :nativeName,
+    :numericCode,
+    :currencies,
+    :languages,
+    :translations,
+    :flag,
+    :regionalBlocs,
+    :cioc
+  ]
 end
 

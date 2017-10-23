@@ -11,11 +11,11 @@ First, add Excountries to your `mix.exs` dependencies:
 
 ```elixir
 def deps do
-  [{:excountries, "~> 0.0.1"}]
+  [{:excountries, "~> 0.0.4"}]
 end
 ```
 
-and run `$ mix deps.get`. 
+and run `$ mix deps.get`.
 
 ## Usage
 
@@ -74,7 +74,7 @@ Searches for the country by it's calling code:
  Excountries.Radar.by_calling_code("01")
 ```
 
-### Region 
+### Region
 
 Searches for the country by it's region:
 
@@ -82,7 +82,7 @@ Searches for the country by it's region:
  Excountries.Radar.by_region("Oceania")
 ```
 
-### Subregion 
+### Subregion
 
 Searches for the country by it's subregion:
 
@@ -98,25 +98,47 @@ Searches for the country by it's country code:
  Excountries.Radar.by_country_code("MKD")
 ```
 
+### Regional bloc
+
+Searches for the country by it's regional bloc:
+
+```elixir
+ Excountries.Radar.by_regional_bloc("eu")
+```
+
 ## ```Country```
 
 ```%Excountries.Country``` is a struct containing multiple properties:
 
   - name
+  - topLevelDomain
+  - alpha2Code
+  - alpha3Code
+  - callingCodes
   - capital
-  - relevance
+  - altSpellings
   - region
   - subregion
   - population
-  - latitude
-  - longitude
+  - latlng
   - demonym
   - area
+  - gini
   - timezones
+  - borders
   - nativeName
-  - topLevelDomain
+  - numericCode
   - currencies
   - languages
+  - translations
+  - flag
+  - regionalBlocs
+  - cioc
+
+## News
+
+- **2017/10/23**
+  - Added support to API v2 (Thanks to Pedro Vieira)
 
 ## Contributing
 
